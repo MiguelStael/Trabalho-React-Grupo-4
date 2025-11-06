@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { Navbar } from './components/NavBar/Index'
+import { AppRoutes } from './routes/index.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Navbar/>
+      {}
+      <AppRoutes />
+      <Navbar />
       <div>
         <a href="https://vite.dev" target="_blank">
         </a>
