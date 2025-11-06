@@ -1,51 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import ItemList from './ItemList';
-import Filter from './Filter';
-import { fetchApiData } from '../services/api';
+import { useState } from 'react';
+import { useFetchPokemonList } from '../hooks/useFetchPokemonList';
+import Filtro from '../components/Filtro';
+import {
+    ContainerPrincipal,
+    Titulo,
+    Separador,
+    Mensagem,
+    CardContainer,
+    Card,
+    CardTitle
+} from './HomeStyles';
 
-const Home = () => {
-    const [data, setData] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const loadData = async () => {
-            try {
-                const result = await fetchApiData();
-                setData(result);
-                setIsLoading(false);
-            } catch (error) {
-                console.error("Erro ao buscar dados da API:", error);
-                setIsLoading(false);
-            }
-        };
-
-        loadData();
-    }, []);
-    const filteredData = data.filter(item =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+const CardSimples = ({ nome, url }) => {
     return (
-        <div className="home-container">
-            <h1>Catálogo Principal</h1>
-
-            { }
-            <Filter
-                searchTerm={searchTerm}
-                onSearchChange={setSearchTerm}
-            />
-
-            { }
-            {isLoading && <p>Carregando dados...</p>}
-
-            {!isLoading && filteredData.length === 0 && searchTerm !== '' && (
-                <p>Nenhum item encontrado para "{searchTerm}".</p>
-            )}
-
-            { }
-            <ItemList items={filteredData} />
-        </div>
+        <Card>
+            <CardTitle>{nome}</CardTitle>
+            <small>ID: {url.split('/').slice(-2, -1)}</small>
+        </Card>
     );
 };
 
-export default Home;
+export const Home = () => {
+    const { listaPokemon, estaCarregando } = useFetchPokemonList(100);
+    const [termoBusca, setTermoBusca] = useState('');
+    const [tipoSelecionado, setTipoSelecionado] = useState('all');
+
+    const pokemonFiltrados = listaPokemon.filter(pokemon => {
+        const matchName = pokemon.name.toLowerCase().includes(termoBusca.toLowerCase());
+        const matchType =
+            tipoSelecionado === 'all' ||
+            pokemon.types.includes(tipoSelecionado);
+
+        return matchName && matchType;
+    });
+
+    return (
+        <ContainerPrincipal>
+            <Titulo>
+                📚 Catálogo Pokémon
+            </Titulo>
+
+            {/*Filtro (Passa estados e setters via props*/}
+            <Filtro
+                termoBusca={termoBusca}
+                setTermoBusca={setTermoBusca}
+                tipoSelecionado={tipoSelecionado}
+                setTipoSelecionado={setTipoSelecionado}
+            />
+
+            <Separador />
+
+            {estaCarregando && <Mensagem>Carregando dados, aguarde...</Mensagem>}
+
+            <CardContainer>
+                {!estaCarregando && pokemonFiltrados.length > 0 ? (
+                    pokemonFiltrados.map((pokemon) => (
+                        <CardSimples
+                            key={pokemon.name}
+                            nome={pokemon.name}
+                            url={pokemon.url}
+                        />
+                    ))
+                ) : (
+                    !estaCarregando && <Mensagem>Nenhum Pokémon encontrado.</Mensagem>
+                )}
+            </CardContainer>
+        </ContainerPrincipal>
+    );
+};
