@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { Nav, NavList, MobileMenu, Logo, StyledLink } from "./style";export const Navbar = () => {
+import { Nav, NavList, MobileMenu, Logo, StyledLink } from "./Style";export const Navbar = () => {
   return (
     <Nav>
       <Logo to="/">Loja</Logo>
