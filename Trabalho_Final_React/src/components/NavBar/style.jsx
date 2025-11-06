@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// // Links gerais
 export const StyledLink = styled(Link)`
   color: #fff;
   text-decoration: none;
@@ -13,7 +12,6 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-// Logo
 export const Logo = styled(StyledLink)`
   font-size: 20px;
   text-transform: uppercase;
@@ -21,7 +19,6 @@ export const Logo = styled(StyledLink)`
   color: #fff;
 `;
 
-// Nav principal
 export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -36,10 +33,9 @@ export const Nav = styled.nav`
   }
 `;
 
-// Lista de navegação
 export const NavList = styled.ul`
   list-style: none;
-  display: none;
+  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
   flex-direction: column;
   gap: 16px;
   position: absolute;
@@ -52,6 +48,7 @@ export const NavList = styled.ul`
 
   li {
     letter-spacing: 2px;
+    
   }
 
   @media (min-width: 768px) {
@@ -69,16 +66,30 @@ export const NavList = styled.ul`
   }
 `;
 
-// Menu mobile (hamburger)
 export const MobileMenu = styled.div`
   display: block;
   cursor: pointer;
+  z-index: 11;
 
   div {
     width: 32px;
-    height: 2px;
+    height: 3px;
     background: #fff;
     margin: 6px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .open:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .open:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
   }
 
   @media (min-width: 768px) {
