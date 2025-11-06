@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { Navbar } from './components/NavBar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <Navbar/>
       <div>
         <a href="https://vite.dev" target="_blank">
         </a>
