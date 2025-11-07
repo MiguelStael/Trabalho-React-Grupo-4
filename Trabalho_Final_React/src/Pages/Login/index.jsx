@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
-import Styled from './style.jsx'; 
-import { useAuthContext } from '../../context/AuthContext.jsx'; 
-
-
-export const Login = () => {
+import { useNavigate } from 'react-router-dom';
+import * as Styled from './style.jsx'; 
+import { useAuthContext } from '../../context/AuthUtils.jsx';
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
 
     const { login, isLoading } = useAuthContext(); 
+    const navigate = useNavigate();
     
     const handleLogin = async (e) => {
         e.preventDefault();
         setError(null);
 
-        try {
-            await login(username, password);
-        } catch (err) {
-            setError(err.message);
+        if (!username || !password) {
+             setError("Todos os campos devem ser preenchidos.");
+             return;
+        }
+
+        const success = await login(username, password);
+
+        if (success) {
+            navigate('/home');
+        } else {
+            setError('Chave de Acesso ou Senha Secreta inválida.');
         }
     };
 
     return (
-        <Styled.LoginWrapper>
-            <Styled.LoginContainer onSubmit={handleLogin}>
+        <Styled.LoginWrapper onSubmit={handleLogin}>
+            <Styled.LoginContainer>
                 <Styled.Title>VERIFICAR</Styled.Title>
                 <Styled.SubTitle>Autenticação de Acesso ao Cofre de Cartas Raras</Styled.SubTitle>
                 
@@ -33,7 +40,6 @@ export const Login = () => {
                         placeholder="Chave de Acesso (Login)"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        $hasError={!!error} 
                         disabled={isLoading}
                     />
                 </Styled.InputGroup>
