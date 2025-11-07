@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { Nav, NavList, MobileMenu, Logo, StyledLink } from "./style";export const Navbar = () => {
 
