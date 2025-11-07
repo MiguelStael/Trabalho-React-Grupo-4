@@ -1,22 +1,23 @@
 import { useState } from 'react'
-import { Navbar } from './components/NavBar/Index'
-import { AppRoutes } from './routes/index.jsx'
+import Navbar from './components/NavBar/index'
+import AppRoutes from './routes/index.js'
+import PokemonCard from './components/Card/PokemonCard'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      {}
       <AppRoutes />
       <Navbar />
+      <main>
+        <h1>Pokemon</h1>
+        <p>clique aqui para comprar cards de Pokemon</p>
+      </main>
       <div>
-        <a href="https://vite.dev" target="_blank">
-        </a>
-        <a href="https://react.dev" target="_blank">
-        </a>
+        <a href="https://vite.dev" target="_blank"></a>
+        <a href="https://react.dev" target="_blank"></a>
       </div>
-      <h1>Pokemon</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
