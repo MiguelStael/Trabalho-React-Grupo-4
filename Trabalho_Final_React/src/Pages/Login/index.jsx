@@ -19,12 +19,13 @@ const Login = () => {
              return;
         }
 
-        const success = await login(username, password);
-
-        if (success) {
-            navigate('/home');
-        } else {
-            setError('Chave de Acesso ou Senha Secreta inválida.');
+        try {
+            const result = await login(username, password);
+            if (result.success) {
+                navigate('/');
+            }
+        } catch (error) {
+            setError(error.message || 'Chave de Acesso ou Senha Secreta inválida.');
         }
     };
 

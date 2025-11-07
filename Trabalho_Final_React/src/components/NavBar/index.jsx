@@ -18,9 +18,8 @@ import { Nav, NavList, MobileMenu, Logo, StyledLink } from "./style";export cons
 
       <NavList $isOpen={isOpen}>
         <li><StyledLink to="/">Início</StyledLink></li>
-        <li><StyledLink to="/login">Sobre</StyledLink></li>
-        <li><StyledLink to="/projetos">Projetos</StyledLink></li>
-        <li><StyledLink to="/contato">Contato</StyledLink></li>
+        <li><StyledLink to="/about">Sobre</StyledLink></li>
+        <li><StyledLink to="/login">Login</StyledLink></li>
       </NavList>
     </Nav>
   );
