@@ -24,7 +24,7 @@ export const Navbar = () => {
         <li><StyledLink to="/">Início</StyledLink></li>
         <li><StyledLink to="/about">Sobre</StyledLink></li>
         <li><StyledLink to="/login">Login</StyledLink></li>
-        <li><StyledLink to="/Carrinho">Carrinho</StyledLink></li>
+        <li><StyledLink to="/cart">Carrinho</StyledLink></li>   {/* ✅ CORRETO */}
       </NavList>
     </Nav>
   );
