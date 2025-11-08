@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useFetchPokemonList } from '../hooks/useFetchPokemonList';
-import Filtro from '../components/Filtro';
+import { useFetchPokemonList } from '../../hooks/useFetchPokemonList.jsx';
+import Filtro from './Filtro.jsx';
 import {
     ContainerPrincipal,
     Titulo,
