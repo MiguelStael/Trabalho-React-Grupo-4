@@ -2,13 +2,13 @@ import styled, { keyframes } from 'styled-components';
 
 const holoShine = keyframes`
   0% {
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 29px rgba(255, 255, 255, 0.9), 0 0 58px rgba(255, 255, 255, 0.54), 0 0 86px rgba(255, 255, 255, 0.27), 0 0 115px rgba(255, 255, 255, 0.09);
   }
   50% {
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.7), 0 0 50px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 32px rgba(0, 0, 139, 1), 0 0 64px rgba(0, 0, 139, 0.6), 0 0 96px rgba(0, 0, 139, 0.3), 0 0 128px rgba(0, 0, 139, 0.1);
   }
   100% {
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 29px rgba(255, 255, 255, 0.9), 0 0 58px rgba(255, 255, 255, 0.54), 0 0 86px rgba(255, 255, 255, 0.27), 0 0 115px rgba(255, 255, 255, 0.09);
   }
 `;
 
@@ -17,31 +17,44 @@ export const LoginWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #0d0d0d; 
+  background: url('/src/Assets/fundo.jpg') no-repeat center center fixed;
+  background-size: cover;
 `;
 
 export const LoginContainer = styled.form`
-  background: #1e1e1e;
+  background: #000033;
   border: 3px solid #444;
-  border-radius: 10px;
-  padding: 40px;
+  border-radius: 50%;
+  padding: 60px;
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
+  height: 500px;
   text-align: center;
-  
-  animation: ${holoShine} 6s infinite ease-in-out; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  animation: ${holoShine} 6s infinite ease-in-out;
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.8), 0 0 64px rgba(255, 255, 255, 0.4), 0 0 96px rgba(0, 0, 139, 0.6);
 `;
 
 export const Title = styled.h1`
   font-family: 'Georgia', serif;
-  color: #FFF;
+  font-size: 2.4em;
+  color: #FFFFFF;
+  margin-top: 10px;
   margin-bottom: 5px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  
-  text-shadow: 
-    0 0 8px rgba(255, 215, 0, 0.7), 
-    1px 1px 3px rgba(0, 0, 0, 0.8);
+  text-align: center;
+
+  /* Branco neon padrão */
+  text-shadow: 0 0 6px #FFFFFF, 0 0 12px #FFFFFF;
+
+  &:hover {
+    /* Inversão para azul neon */
+    text-shadow: 0 0 6px #00FFFF, 0 0 12px #00FFFF;
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -81,36 +94,38 @@ export const StyledInput = styled.input`
 `;
 
 export const ErrorMessage = styled.p`
-  color: #FF4136; 
+  color: #FF4136;
   margin-top: 10px;
   font-size: 0.9em;
-  font-weight: bold;
+  font-family: 'Georgia', serif;
+  font-weight: normal;
 `;
 
 export const StyledButton = styled.button`
-  width: 100%;
-  padding: 15px;
-  margin-top: 30px;
+  width: 68%;
+  padding: 12px;
+  margin: 30px auto 0 auto;
   border: none;
   border-radius: 5px;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: bold;
   cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
   text-transform: uppercase;
-  
-  background: ${props => props.$disabled ? '#444' : '#DC143C'}; 
+  display: block;
+
+  background: ${props => props.$disabled ? '#444' : '#4646e6'};
   color: white;
-  
-  box-shadow: 0 5px #990e2b; 
+
+  box-shadow: 0 5px #2a2a8a;
   transform: translateY(0);
   transition: all 0.1s;
 
   &:not(:disabled):hover {
-    background: #FF4500;
+    background: #5a5ae6;
   }
 
   &:not(:disabled):active {
-    box-shadow: 0 2px #990e2b;
+    box-shadow: 0 2px #2a2a8a;
     transform: translateY(3px);
   }
 `;

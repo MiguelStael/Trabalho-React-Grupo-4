@@ -3,12 +3,12 @@ import { Login } from '../Pages/Login/index.jsx'
 import { Home } from '../Pages/Home/Home.jsx';
 import { Layout } from '../Pages/Layout/index.jsx';
 import { About } from '../Pages/About/index.jsx'
-//import { AuthProvider } from '../context/AuthContext.jsx'
+import { AuthProvider } from '../context/AuthContext.jsx'
 
 
 export const AppRoutes = () => {
   return (
-    //<AuthProvider>
+    <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -18,6 +18,6 @@ export const AppRoutes = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    //</AuthProvider>
+    </AuthProvider>
   );
 };
