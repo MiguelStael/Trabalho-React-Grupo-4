@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import * as Styled from './style.jsx';
 import { useAuthContext } from '../../context/AuthUtils.jsx';
+import { Navbar } from "../../components/Navbar";
 
 export const Login = () => {
     const [username, setUsername] = useState('');
@@ -57,6 +58,7 @@ export const Login = () => {
 
     return (
         <>
+            <Navbar />
             <ZoomControls />
             <div
                 style={{ transform: `scale(${zoom})`, transition: 'transform 0.3s ease-in-out' }}
