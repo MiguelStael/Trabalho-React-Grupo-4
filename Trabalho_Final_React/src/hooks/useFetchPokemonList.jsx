@@ -6,35 +6,37 @@ export const useFetchPokemonList = (limit = 100) => {
     const [erro, setErro] = useState(null);
 
     useEffect(() => {
-        const buscarListaPokemonCompleta = async () => {
-            setEstaCarregando(true);
+        const fetchPokemon = async () => {
             try {
-                const urlApi = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
-                const respostaInicial = await fetch(urlApi);
-                const dadosIniciais = await respostaInicial.json();
-                const promessasDetalhes = dadosIniciais.results.map(async (pokemon) => {
-                    const respDetalhes = await fetch(pokemon.url);
-                    const dadosDetalhes = await respDetalhes.json();
+                setEstaCarregando(true);
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar Pokémon');
+                }
+                const data = await response.json();
 
-                    return {
-                        name: pokemon.name,
-                        url: pokemon.url,
-                        types: dadosDetalhes.types.map(t => t.type.name)
-                    };
-                });
+                // Para cada Pokémon, buscar detalhes para obter tipos
+                const pokemonComTipos = await Promise.all(
+                    data.results.map(async (pokemon) => {
+                        const detailResponse = await fetch(pokemon.url);
+                        const detailData = await detailResponse.json();
+                        return {
+                            name: pokemon.name,
+                            url: pokemon.url,
+                            types: detailData.types.map(type => type.type.name)
+                        };
+                    })
+                );
 
-                const listaDetalhada = await Promise.all(promessasDetalhes);
-
-                setListaPokemon(listaDetalhada);
-                setEstaCarregando(false);
-            } catch (err) {
-                console.error("Erro ao buscar dados da API:", err);
-                setErro(err);
+                setListaPokemon(pokemonComTipos);
+            } catch (error) {
+                setErro(error.message);
+            } finally {
                 setEstaCarregando(false);
             }
         };
 
-        buscarListaPokemonCompleta();
+        fetchPokemon();
     }, [limit]);
 
     return { listaPokemon, estaCarregando, erro };

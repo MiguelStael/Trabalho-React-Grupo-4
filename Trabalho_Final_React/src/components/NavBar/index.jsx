@@ -17,6 +17,7 @@ export const Navbar = () => {
         <div className={isOpen ? "open" : ""}></div>
         <div className={isOpen ? "open" : ""}></div>
         <div className={isOpen ? "open" : ""}></div>
+ main
       </MobileMenu>
 
       <NavList $isOpen={isOpen}>
