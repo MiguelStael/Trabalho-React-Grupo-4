@@ -12,16 +12,19 @@ export const Navbar = () => {
   return (
     <Nav>
       <Logo to="/">Loja</Logo>
-       <MobileMenu onClick={toggleMenu} aria-label="Menu">
+      <MobileMenu onClick={toggleMenu} aria-label="Menu">
         <div className={isOpen ? "open" : ""}></div>
         <div className={isOpen ? "open" : ""}></div>
         <div className={isOpen ? "open" : ""}></div>
+        <div className={isOpen ? "open" : ""}></div>
+ main
       </MobileMenu>
 
       <NavList $isOpen={isOpen}>
         <li><StyledLink to="/">Início</StyledLink></li>
         <li><StyledLink to="/about">Sobre</StyledLink></li>
         <li><StyledLink to="/login">Login</StyledLink></li>
+        <li><StyledLink to="/Carrinho">Carrinho</StyledLink></li>
       </NavList>
     </Nav>
   );
