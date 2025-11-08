@@ -6,9 +6,7 @@ function App() {
 
   return (
     <>
-      <AppRoutes />      
-        <h1>Pokemon</h1>
-        <p>clique aqui para comprar cards de Pokemon</p>
+      <AppRoutes />
     </>
   )
 }
