@@ -1,6 +1,6 @@
 import { Routes, Route} from 'react-router'
 import App from '../App'
-import { Login } from '../Pages/Login'
+import Login from '../Pages/Login'
 
 
 export const Router = () => {
