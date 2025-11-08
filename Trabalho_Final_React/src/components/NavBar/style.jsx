@@ -1,0 +1,98 @@
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const StyledLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+    color: gold;
+  }
+`;
+
+export const Logo = styled(StyledLink)`
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #23232e;
+  height: 60px;
+  padding: 0 16px;
+
+  @media (min-width: 768px) {
+    justify-content: space-around;
+  }
+`;
+
+export const NavList = styled.ul`
+  list-style: none;
+  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  gap: 16px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #23232e;
+  width: 200px;
+  padding: 16px;
+  border-radius: 8px;
+
+  li {
+    letter-spacing: 2px;
+    
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    width: auto;
+    background: none;
+    padding: 0;
+    gap: 32px;
+
+    li {
+      margin-left: 32px;
+    }
+  }
+`;
+
+export const MobileMenu = styled.div`
+  display: block;
+  cursor: pointer;
+  z-index: 11;
+
+  div {
+    width: 32px;
+    height: 3px;
+    background: #fff;
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .open:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .open:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
