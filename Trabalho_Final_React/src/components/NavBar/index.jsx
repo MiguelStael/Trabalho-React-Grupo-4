@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Nav, NavList, MobileMenu, Logo, StyledLink } from "./style";export const Navbar = () => {
+import { Nav, NavList, MobileMenu, Logo, StyledLink } from "./style";
+
+export const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
