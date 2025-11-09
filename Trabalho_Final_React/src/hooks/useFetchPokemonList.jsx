@@ -20,10 +20,15 @@ export const useFetchPokemonList = (limit = 100) => {
                     data.results.map(async (pokemon) => {
                         const detailResponse = await fetch(pokemon.url);
                         const detailData = await detailResponse.json();
+                        // Gerar preço aleatório entre R$5.00 e R$100.00
+                        const price = Number((Math.random() * 95 + 5).toFixed(2));
                         return {
+                            id: detailData.id,
                             name: pokemon.name,
                             url: pokemon.url,
-                            types: detailData.types.map(type => type.type.name)
+                            types: detailData.types.map(type => type.type.name),
+                            sprite: detailData.sprites?.front_default || '',
+                            price
                         };
                     })
                 );
