@@ -10,7 +10,7 @@ export const useAuth = () => {
 
         await new Promise(resolve => setTimeout(resolve, 500));
 
-        if (username === 'pokémon' && password === 'lendario') {
+        if (username === 'pokemon' && password === 'lendario') {
             const token = `token-${username}-${Date.now()}`;
             localStorage.setItem(TOKEN_KEY, token);
             setUser({ name: 'Colecionador Logado', token: token });

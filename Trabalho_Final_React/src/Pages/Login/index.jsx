@@ -62,10 +62,6 @@ export const Login = () => {
             <ZoomControls />
             <div
                 style={{ transform: `scale(${zoom})`, transition: 'transform 0.3s ease-in-out' }}
-                onWheel={(e) => {
-                    e.preventDefault();
-                    setZoom(prev => Math.max(0.5, Math.min(2, prev + (e.deltaY > 0 ? -0.1 : 0.1))));
-                }}
             >
                 <Styled.LoginWrapper onSubmit={handleLogin}>
                     <Styled.LoginContainer>
