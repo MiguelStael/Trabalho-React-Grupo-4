@@ -1,13 +1,14 @@
-import { CardContainer, Image } from "./style"
-import image from '../../Assets/download.jpg'
+import { CardContainer, ContainerImg, Descricao, Image, Titulo } from "./style"
 
-export const PersonalCard = () => {
+export const PersonalCard = ({image, titulo, descricao}) => {
     return (
 
-    <CardContainer> 
-        <Image src={image} alt="" />
-        ola
-        
+    <CardContainer>
+        <ContainerImg>
+            <Image src={image} alt="" />
+        </ContainerImg> 
+        <Titulo>{titulo}</Titulo>
+        <Descricao>{descricao}</Descricao>       
     </CardContainer>
     )
 }

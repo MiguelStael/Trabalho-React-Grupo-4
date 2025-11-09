@@ -3,15 +3,16 @@ import styled from 'styled-components'
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   min-height: 250px;
-  background-color: black;
-  border-radius: 10px;
+  background-color: #ffffffa4;
+  border-radius: 30px;
+  border: none;
   padding: 20px;
   margin-bottom: 100px;
-  /* color: white; */
+  box-sizing: border-box;
 
   @media (min-width: 768px){
     width: 250px;
@@ -19,11 +20,32 @@ export const CardContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    width: 350px;
-    height: 550px;
+    height: 400px;
+    min-width: 400px;
   }
 `;
 
-  export const Image = styled.img`
-    height: 100px;
+  export const ContainerImg = styled.div`
+    display: flex;
+    margin-top: 10px 
   `;
+
+  export const Image = styled.img`
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+  `;
+
+  export const Titulo = styled.h2`
+    text-align: center;
+    color: black;
+    margin-top: 20px;
+  `;
+
+  export const Descricao = styled.h3`
+    text-align: center;
+    margin-top: 50px
+
+  `;
+
+
