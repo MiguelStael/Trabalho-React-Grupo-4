@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import * as Styled from './style.jsx';
 import { useAuthContext } from '../../context/AuthUtils.jsx';
-import { Navbar } from "../../components/Navbar";
+import { Navbar } from "../../components/NavBar";
 
 export const Login = () => {
     const [username, setUsername] = useState('');
@@ -18,8 +18,8 @@ export const Login = () => {
         setError(null);
 
         if (!username || !password) {
-             setError("Todos os campos devem ser preenchidos.");
-             return;
+            setError("Todos os campos devem ser preenchidos.");
+            return;
         }
 
         try {
