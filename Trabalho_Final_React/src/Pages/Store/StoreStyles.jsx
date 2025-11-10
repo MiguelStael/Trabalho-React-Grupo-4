@@ -12,6 +12,9 @@ const flyToCart = keyframes`
 `;
 
 export const Main = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background: #076585;  
     background: -webkit-linear-gradient(to top, #fff, #076585);  
     background: linear-gradient(to top, #fff, #076585); 

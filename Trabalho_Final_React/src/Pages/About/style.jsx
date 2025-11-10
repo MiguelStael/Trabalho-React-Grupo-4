@@ -46,6 +46,7 @@ export const Titulo = styled.h1`
   text-align: center;
   color: #fff;
   font-size: 50px;
+  
 `;
 
 export const SubTitulo = styled.h4`

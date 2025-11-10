@@ -15,19 +15,21 @@ import {GitDiego, GitIreni, GitLorrane, GitMiguel, GitRafael, GitFelipe} from '.
 
 export const About = () => {
     return (
-        <Main>
-            <TextContainer>
-                <Titulo>Serratex</Titulo>
-                <SubTitulo>A Pokedex do Serratec com seus Pokemons Lendários</SubTitulo>
-            </TextContainer>
-            <Container >    
-                <PersonalCard image={Rafael} titulo=" Rafael " Link={LinRafael} gitLink={GitRafael} />
-                <PersonalCard image={Diego} titulo=" Diego" Link={LinDiego} gitLink={GitDiego} />
-                <PersonalCard image={Miguel} titulo=" Miguel" Link={LinMiguel} gitLink={GitMiguel} />
-                <PersonalCard image={Ireni} titulo="a Ireni" Link={LinIreni} gitLink={GitIreni} />
-                <PersonalCard image={Lorrane} titulo="a Lorrane" Link={LinLorrane} gitLink={GitLorrane} />
-                {/* <PersonalCard image={Felipe} titulo=" Felipe" Link={LinFelipe} gitLink={GitFelipe} />             */}
-            </Container>
-        </Main>
+        <>
+            <Main>
+                <TextContainer>
+                    <Titulo>Serratex</Titulo>
+                    <SubTitulo>A Pokedex do Serratec com seus Pokemons Lendários</SubTitulo>
+                </TextContainer>
+                <Container >    
+                    <PersonalCard image={Rafael} titulo=" Rafael " Link={LinRafael} gitLink={GitRafael} />
+                    <PersonalCard image={Diego} titulo=" Diego" Link={LinDiego} gitLink={GitDiego} />
+                    <PersonalCard image={Miguel} titulo=" Miguel" Link={LinMiguel} gitLink={GitMiguel} />
+                    <PersonalCard image={Ireni} titulo="a Ireni" Link={LinIreni} gitLink={GitIreni} />
+                    <PersonalCard image={Lorrane} titulo="a Lorrane" Link={LinLorrane} gitLink={GitLorrane} />
+                    {/* <PersonalCard image={Felipe} titulo=" Felipe" Link={LinFelipe} gitLink={GitFelipe} />             */}
+                </Container>
+            </Main>
+        </>
     )
 }
