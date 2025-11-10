@@ -1,14 +1,29 @@
 import styled from 'styled-components';
 import { Link } from 'react-router'; 
 
-export const StyledLink = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  transition: 0.3s;
-
+export const NavButton = styled.button`
+  background: ${({ $active }) => ($active ? '#8cc5ff' : 'transparent')};
+  color: ${({ $active }) => ($active ? '#121c2c' : '#fff')};
+  border: ${({ $active }) => ($active ? '1px solid #121c2c' : 'none')};
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
   &:hover {
-    opacity: 0.7;
-    color: red;
+    opacity: 0.8;
+    background: ${({ $active }) => ($active ? '#7ab4f5' : 'rgba(255,255,255,0.1)')};
+  }
+
+  @media (min-width: 768px) {
+    padding: 8px 16px;
+    font-size: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 10px 20px;
   }
 `;
 
