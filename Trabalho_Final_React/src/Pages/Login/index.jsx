@@ -8,7 +8,6 @@ export const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    const [zoom, setZoom] = useState(1);
 
     const { login, isLoading } = useAuthContext();
     const navigate = useNavigate();
@@ -27,7 +26,7 @@ export const Login = () => {
             if (result.success) {
                 const container = e.target.closest('div');
                 container.style.transform = 'translateX(-100%)';
-                container.style.transition = 'transform 0.96s ease-in-out';
+                container.style.transition = 'transform 0.70s ease-in-out';
                 setTimeout(() => {
                     navigate('/home');
                 }, 960);
@@ -39,33 +38,15 @@ export const Login = () => {
         }
     };
 
-    const ZoomControls = () => (
-        <div style={{
-            position: 'absolute',
-            top: 20,
-            right: 20,
-            zIndex: 10,
-            background: '#ffffffcc',
-            padding: '6px',
-            borderRadius: '8px',
-            boxShadow: '0 0 6px #aaa'
-        }}>
-            <button onClick={() => setZoom(prev => Math.max(prev - 0.1, 0.5))}>–</button>
-            <button onClick={() => setZoom(prev => Math.min(prev + 0.1, 2))}>+</button>
-        </div>
-    );
-
     return (
         <>
-            <Navbar />
-            <ZoomControls />
-            <div
-                style={{ transform: `scale(${zoom})`, transition: 'transform 0.3s ease-in-out' }}
-            >
+            <div>
                 <Styled.LoginWrapper onSubmit={handleLogin}>
                     <Styled.LoginContainer>
                         <Styled.Title>POKECOFRE</Styled.Title>
-                        <Styled.SubTitle style={{ color: '#FFFFFF' }}>Autenticação de Acesso ao Cofre de Cartas Raras</Styled.SubTitle>
+                        <Styled.SubTitle style={{ color: '#FFFFFF' }}>
+                            Autenticação de Acesso ao Cofre de Cartas Raras
+                        </Styled.SubTitle>
 
                         <Styled.InputGroup>
                             <Styled.StyledInput
@@ -101,5 +82,3 @@ export const Login = () => {
         </>
     );
 };
-
-
