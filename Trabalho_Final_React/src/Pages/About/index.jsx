@@ -12,19 +12,18 @@ import Ireni from '../../Assets/ireni.pokemon.jpg'
 import {LinDiego, LinIreni, LinLorrane, LinMiguel, LinRafael} from '../../context/Links'
 import {GitDiego, GitIreni, GitLorrane, GitMiguel, GitRafael} from '../../context/Links'
 
-
 export const About = () => {
     return (
-        <Main >
-            <PersonalCard image={Rafael} titulo=" Rafael " Link={LinRafael} gitLink={GitRafael} />
-            <PersonalCard image={Diego} titulo=" Diego" Link={LinDiego} gitLink={GitDiego} />
-            <PersonalCard image={Miguel} titulo=" Miguel" Link={LinMiguel} gitLink={GitMiguel} />
-            <PersonalCard image={Ireni} titulo="a Ireni" Link={LinIreni} gitLink={GitIreni} />
-            <PersonalCard image={Lorrane} titulo="a Lorrane" Link={LinLorrane} gitLink={GitLorrane} />
-            <PersonalCard image={Felipe} titulo=" Felipe" Link="#" gitLink="#" />
+            <Main >
+                <PersonalCard image={Rafael} titulo=" Rafael " Link={LinRafael} gitLink={GitRafael} />
+                <PersonalCard image={Diego} titulo=" Diego" Link={LinDiego} gitLink={GitDiego} />
+                <PersonalCard image={Miguel} titulo=" Miguel" Link={LinMiguel} gitLink={GitMiguel} />
+                <PersonalCard image={Ireni} titulo="a Ireni" Link={LinIreni} gitLink={GitIreni} />
+                <PersonalCard image={Lorrane} titulo="a Lorrane" Link={LinLorrane} gitLink={GitLorrane} />
+                <PersonalCard image={Felipe} titulo=" Felipe" Link="#" gitLink="#" />
+                
+                
             
-            
-         
-        </Main>
+            </Main>           
     )
 }
