@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Nav, NavList, MobileMenu, StyledLink, Badge, LogoImage, LogoLink } from "./style";
 import { useCart } from '../../context/CartContext';
-import  poke  from '../../Assets/pngimg.com - pokemon_PNG14.png';
+import poke from '../../Assets/pngimg.com - pokemon_PNG14.png';
 
 
 export const Navbar = () => {
@@ -17,7 +17,7 @@ export const Navbar = () => {
 
   return (
     <Nav>
-      <LogoLink to="/">
+      <LogoLink to="/home">
         <LogoImage src={poke} alt="Logo Pokebola" />
       </LogoLink>
       <MobileMenu onClick={toggleMenu} aria-label="Menu">
@@ -29,7 +29,6 @@ export const Navbar = () => {
 
       <NavList $isOpen={isOpen}>
         <li><StyledLink to="/store">Loja</StyledLink></li>
-        {/* <HugeiconsIcon icon={PokeballIcon} /> */}
         <li><StyledLink to="/about">Sobre</StyledLink></li>
         <li>
           <StyledLink to="/cart">
@@ -40,7 +39,7 @@ export const Navbar = () => {
               </Badge>
             )}
           </StyledLink>
-        </li>   
+        </li>
         <li><StyledLink to="/login">Login</StyledLink></li>
       </NavList>
     </Nav>
