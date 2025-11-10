@@ -8,17 +8,19 @@ export const CardContainer = styled.div`
   max-width: 250px;
   min-height: 250px;
   background: #ffffff36;
-  box-shadow:
-    0 14px 30px rgba(0,0,0,0.65),
-    0 0 28px rgba(151, 85, 255, 0.07),
-    inset 0 2px 0 rgba(255,255,255,0.03),
-    inset 0 -10px 30px rgba(0,0,0,0.5);
+  box-shadow: -4px 4px 0 #417ceb;
   border:  2px #fff;
   border-radius: 30px;
   border: none;
   padding: 20px;
   margin-bottom: 100px;
   box-sizing: border-box;
+  transition: transform 0.5s ease;
+
+  &:hover{
+    transform: scale(1.1);
+    box-shadow: -4px 4px 0 darkblue;
+  }
 
   @media (min-width: 768px){
     min-width: 300px;

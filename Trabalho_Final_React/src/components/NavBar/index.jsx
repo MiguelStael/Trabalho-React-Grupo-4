@@ -17,7 +17,7 @@ export const Navbar = () => {
 
   return (
     <Nav>
-      <LogoLink to="/">
+      <LogoLink to="/home">
         <LogoImage src={poke} alt="Logo Pokebola" />
       </LogoLink>
       <MobileMenu onClick={toggleMenu} aria-label="Menu">
@@ -29,7 +29,6 @@ export const Navbar = () => {
 
       <NavList $isOpen={isOpen}>
         <li><StyledLink to="/store">Loja</StyledLink></li>
-        {/* <HugeiconsIcon icon={PokeballIcon} /> */}
         <li><StyledLink to="/about">Sobre</StyledLink></li>
         <li>
           <StyledLink to="/cart">
@@ -41,7 +40,7 @@ export const Navbar = () => {
             )}
           </StyledLink>
         </li>   
-        <li><StyledLink to="/login">Login</StyledLink></li>
+        <li><StyledLink to="/">Login</StyledLink></li>
       </NavList>
     </Nav>
   );
