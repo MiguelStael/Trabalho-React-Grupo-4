@@ -12,6 +12,7 @@ import { Footer }  from '../components/Footer/index.jsx';
 
 
 export const AppRoutes = () => {
+
   return (
     <AuthProvider>
       <CartProvider>
@@ -27,8 +28,8 @@ export const AppRoutes = () => {
               <Route path="/cart" element={<Cart />} />
             </Route>
           </Routes>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </CartProvider>
     </AuthProvider>
   );
