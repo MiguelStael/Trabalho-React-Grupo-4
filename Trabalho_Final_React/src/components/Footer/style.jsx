@@ -9,6 +9,7 @@ export const Container = styled.footer`
   align-items: center;
   border-top: 3px solid #076585;
   margin-top: 40px;
+  /* position: absolute; */
 `;
 
 export const Text = styled.p`

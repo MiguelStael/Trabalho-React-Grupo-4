@@ -6,21 +6,16 @@ export const ContainerPrincipal = styled.div`
     background: #076585;  
     background: -webkit-linear-gradient(to top, #fff, #076585);  
     background: linear-gradient(to top, #fff, #076585); 
-
-
-    align-items: space-evenly;
-    justify-content: center;
-    min-height: calc(100vh - 60px);
-    width: 100vw;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 100vh ;
 `;
 
 export const ImagemContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  /* position: fixed; */
-  
+  align-items: center;  
   border-radius: 10px;
   background-size: cover;
 `;

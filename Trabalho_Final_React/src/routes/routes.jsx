@@ -28,7 +28,7 @@ export const AppRoutes = () => {
               <Route path="/cart" element={<Cart />} />
             </Route>
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </BrowserRouter>
       </CartProvider>
     </AuthProvider>
