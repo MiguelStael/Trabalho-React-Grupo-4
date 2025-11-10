@@ -10,7 +10,7 @@ export const ContainerPrincipal = styled.div`
 
     align-items: space-evenly;
     justify-content: center;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     width: 100vw;
 `;
 
@@ -19,6 +19,7 @@ export const ImagemContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* position: fixed; */
   
   border-radius: 10px;
   background-size: cover;
