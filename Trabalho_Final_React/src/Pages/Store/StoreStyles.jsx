@@ -93,9 +93,8 @@ export const BackButton = styled.button`
 export const FloatingItemDiv = styled.div`
     position: fixed;
     pointer-events: none;
-    font-size: 24px;
-    z-index: 9999;
-    left: ${props => props.x}px;
-    top: ${props => props.y}px;
+    font-size: 1.5em;
+    left: ${(props) => props.x}px;
+    top: ${(props) => props.y}px;
     animation: ${flyToCart} 0.8s ease-in forwards;
 `;
