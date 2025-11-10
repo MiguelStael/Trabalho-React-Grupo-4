@@ -7,7 +7,6 @@ export const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
-    const [zoom, setZoom] = useState(1);
 
     const { login, isLoading } = useAuthContext();
     const navigate = useNavigate();
@@ -17,17 +16,16 @@ export const Login = () => {
         setError(null);
 
         if (!username || !password) {
-             setError("Todos os campos devem ser preenchidos.");
-             return;
+            setError("Todos os campos devem ser preenchidos.");
+            return;
         }
 
         try {
             const result = await login(username, password);
             if (result.success) {
-                // Adicionar efeito de deslizar saindo para a esquerda
                 const container = e.target.closest('div');
                 container.style.transform = 'translateX(-100%)';
-                container.style.transition = 'transform 0.96s ease-in-out';
+                container.style.transition = 'transform 0.70s ease-in-out';
                 setTimeout(() => {
                     navigate('/');
                 }, 960);
@@ -39,36 +37,15 @@ export const Login = () => {
         }
     };
 
-    const ZoomControls = () => (
-        <div style={{
-            position: 'absolute',
-            top: 20,
-            right: 20,
-            zIndex: 10,
-            background: '#ffffffcc',
-            padding: '6px',
-            borderRadius: '8px',
-            boxShadow: '0 0 6px #aaa'
-        }}>
-            <button onClick={() => setZoom(prev => Math.max(prev - 0.1, 0.5))}>–</button>
-            <button onClick={() => setZoom(prev => Math.min(prev + 0.1, 2))}>+</button>
-        </div>
-    );
-
     return (
         <>
-            <ZoomControls />
-            <div
-                style={{ transform: `scale(${zoom})`, transition: 'transform 0.3s ease-in-out' }}
-                onWheel={(e) => {
-                    e.preventDefault();
-                    setZoom(prev => Math.max(0.5, Math.min(2, prev + (e.deltaY > 0 ? -0.1 : 0.1))));
-                }}
-            >
+            <div>
                 <Styled.LoginWrapper onSubmit={handleLogin}>
                     <Styled.LoginContainer>
                         <Styled.Title>POKECOFRE</Styled.Title>
-                        <Styled.SubTitle style={{ color: '#FFFFFF' }}>Autenticação de Acesso ao Cofre de Cartas Raras</Styled.SubTitle>
+                        <Styled.SubTitle style={{ color: '#FFFFFF' }}>
+                            Autenticação de Acesso ao Cofre de Cartas Raras
+                        </Styled.SubTitle>
 
                         <Styled.InputGroup>
                             <Styled.StyledInput
@@ -104,5 +81,3 @@ export const Login = () => {
         </>
     );
 };
-
-
