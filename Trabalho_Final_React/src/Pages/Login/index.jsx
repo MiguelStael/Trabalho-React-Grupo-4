@@ -25,12 +25,11 @@ export const Login = () => {
         try {
             const result = await login(username, password);
             if (result.success) {
-                // Adicionar efeito de deslizar saindo para a esquerda
                 const container = e.target.closest('div');
                 container.style.transform = 'translateX(-100%)';
                 container.style.transition = 'transform 0.96s ease-in-out';
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/home');
                 }, 960);
             } else {
                 setError('Chave de Acesso ou Senha Secreta inválida.');
