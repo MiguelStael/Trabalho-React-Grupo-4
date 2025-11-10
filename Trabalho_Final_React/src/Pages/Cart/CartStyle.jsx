@@ -4,6 +4,10 @@ const styles = {
     maxWidth: "1100px",
     margin: "0 auto",
     fontFamily: "Arial, sans-serif",
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
   },
 
   title: {
@@ -17,15 +21,19 @@ const styles = {
     display: "flex",
     gap: "25px",
     flexWrap: "wrap",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start",
   },
 
-  
+
   itemsCard: {
-    flex: "2",
+    flex: "1 1 500px",
     background: "#fff",
     padding: "20px",
     borderRadius: "12px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+    minWidth: "300px",
   },
 
   emptyMessage: {
@@ -97,13 +105,15 @@ const styles = {
 
 
   summaryCard: {
-    flex: "1",
+    flex: "0 1 350px",
     background: "#fff",
     padding: "25px",
     borderRadius: "12px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
     height: "fit-content",
-    minWidth: "260px",
+    minWidth: "280px",
+    position: "sticky",
+    top: "80px",
   },
 
   summaryTitle: {

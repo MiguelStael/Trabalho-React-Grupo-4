@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { useFetchPokemonList } from '../../hooks/useFetchPokemonList.jsx';
 import Filtro from './Filtro.jsx';
 import PokemonCard from '../../components/Card/PokemonCard.jsx';
@@ -8,14 +9,35 @@ import {
     Titulo,
     Separador,
     Mensagem,
-    CardContainer, Main
+    CardContainer, Main,
+    FloatingItemDiv
 } from './StoreStyles.jsx';
 
 export const Store = () => {
     const { listaPokemon, estaCarregando } = useFetchPokemonList(100);
     const [termoBusca, setTermoBusca] = useState('');
     const [tipoSelecionado, setTipoSelecionado] = useState('all');
+    const [floatingItems, setFloatingItems] = useState([]);
     const { addPokemonToList } = useCart();
+    const navigate = useNavigate();
+
+    const handleAddPokemon = (pokemon, buttonRef) => {
+        if (buttonRef && buttonRef.current) {
+            const rect = buttonRef.current.getBoundingClientRect();
+            const itemId = Date.now();
+
+            setFloatingItems((prev) => [
+                ...prev,
+                { id: itemId, x: rect.left, y: rect.top },
+            ]);
+
+            setTimeout(() => {
+                setFloatingItems((prev) => prev.filter((item) => item.id !== itemId));
+            }, 800);
+        }
+
+        addPokemonToList(pokemon);
+    };
 
     const pokemonFiltrados = listaPokemon.filter(pokemon => {
         const matchName = pokemon.name.toLowerCase().includes(termoBusca.toLowerCase());
@@ -38,7 +60,7 @@ export const Store = () => {
                     setTermoBusca={setTermoBusca}
                     tipoSelecionado={tipoSelecionado}
                     setTipoSelecionado={setTipoSelecionado}
-                    />
+                />
 
                 <Separador />
 
@@ -47,17 +69,24 @@ export const Store = () => {
                 <CardContainer>
                     {!estaCarregando && pokemonFiltrados.length > 0 ? (
                         pokemonFiltrados.map((pokemon) => (
-                            <PokemonCard
-                            key={pokemon.name}
-                            pokemon={pokemon}
-                            onDetails={() => { }}
-                            onAdd={() => addPokemonToList(pokemon)}
-                            />
+                            <div key={pokemon.name} style={{ position: 'relative' }}>
+                                <PokemonCard
+                                    pokemon={pokemon}
+                                    onDetails={(p) => navigate(`/store/${p.name}`, { state: p })}
+                                    onAdd={(p, ref) => handleAddPokemon(p, ref)}
+                                />
+                            </div>
                         ))
                     ) : (
                         !estaCarregando && <Mensagem>Nenhum Pokémon encontrado.</Mensagem>
                     )}
                 </CardContainer>
+
+                {floatingItems.map((item) => (
+                    <FloatingItemDiv key={item.id} x={item.x} y={item.y}>
+                        🛒
+                    </FloatingItemDiv>
+                ))}
             </ContainerPrincipal>
         </Main>
     );
