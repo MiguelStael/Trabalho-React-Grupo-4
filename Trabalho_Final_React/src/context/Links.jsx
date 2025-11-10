@@ -22,7 +22,7 @@ export const GitMiguel = 'https://github.com/MiguelStael'
 export const LinMiguel = 'https://www.linkedin.com/in/miguel-stael/'
 
 
-export const GitIreni = 'https://github.com/MiguelStael'
+export const GitIreni = 'https://github.com/Ireni-Iachechen'
 
 
-export const LinIreni = 'https://github.com/MiguelStael'
+export const LinIreni = ' http://www.linkedin.com/in/Ireni-Iachechen'
