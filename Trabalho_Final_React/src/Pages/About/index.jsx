@@ -1,18 +1,27 @@
 
 import { Main } from './style';
 import { PersonalCard } from './../../components/PersonalCard/index';
-import image from '../../Assets/download.jpg'
-import Rafael from '../../Assets/63e8a795-a337-407a-99a3-6310b5b8c525.jpg'
+
+import Lorrane from '../../Assets/lorrane.pokemon.png.png'
+import Rafael from '../../Assets/rafael.pokemon.jpg'
+import Felipe from '../../Assets/felipe.pikachu.jpg'
+import Miguel from '../../Assets/miguel.pokemon.jpg';
+import Diego from '../../Assets/diego.pokemon.jpg'
+import Ireni from '../../Assets/ireni.pokemon.jpg'
+
+import {LinDiego, LinIreni, LinLorrane, LinMiguel, LinRafael} from '../../context/Links'
+import {GitDiego, GitIreni, GitLorrane, GitMiguel, GitRafael} from '../../context/Links'
+
 
 export const About = () => {
     return (
         <Main >
-            <PersonalCard image={Rafael} titulo={'Um Rafael selvagem apareceu'} descricao={'Sla'}/>
-            <PersonalCard image={image} titulo={'Um Diego selvagem apareceu'} descricao={'Sla'}/>
-            <PersonalCard image={image} titulo={'Um Miguel selvagem apareceu'} descricao={'Sla'}/>
-            <PersonalCard image={image} titulo={'Uma Ireni selvagem apareceu'} descricao={'Sla'}/>
-            <PersonalCard image={image} titulo={'Uma Lorrane selvagem apareceu'} descricao={'Sla'}/>
-            <PersonalCard image={image} titulo={'Uma Lorrane selvagem apareceu'} descricao={'Sla'}/>
+            <PersonalCard image={Rafael} titulo=" Rafael " Link={LinRafael} gitLink={GitRafael} />
+            <PersonalCard image={Diego} titulo=" Diego" Link={LinDiego} gitLink={GitDiego} />
+            <PersonalCard image={Miguel} titulo=" Miguel" Link={LinMiguel} gitLink={GitMiguel} />
+            <PersonalCard image={Ireni} titulo="a Ireni" Link={LinIreni} gitLink={GitIreni} />
+            <PersonalCard image={Lorrane} titulo="a Lorrane" Link={LinLorrane} gitLink={GitLorrane} />
+            <PersonalCard image={Felipe} titulo=" Felipe" Link="#" gitLink="#" />
             
             
          

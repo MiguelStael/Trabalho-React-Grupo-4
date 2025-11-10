@@ -1,14 +1,27 @@
-import { CardContainer, ContainerImg, Descricao, Image, Titulo } from "./style"
+import { CardContainer, ContainerImg, Descricao, Image, Titulo,
+    PersonalLinks, Links, ContainerLinks
+ } from "./style"
 
-export const PersonalCard = ({image, titulo, descricao}) => {
+import git from '../../Assets/GitHub-PNG-HD-Quality.png'
+import linkedin from '../../Assets/linkedin-logo-linkedin-icon-transparent-free-png.webp'
+export const PersonalCard = ({image, titulo, Link, gitLink}) => {
     return (
 
     <CardContainer>
         <ContainerImg>
             <Image src={image} alt="" />
         </ContainerImg> 
-        <Titulo>{titulo}</Titulo>
-        <Descricao>{descricao}</Descricao>       
+        <Titulo>Um{titulo} selvagem apareceu</Titulo>
+        
+        
+        <ContainerLinks>
+            <PersonalLinks href={Link} target="blank">
+                <Links src={linkedin}/> 
+            </PersonalLinks>
+            <PersonalLinks href={gitLink} target="blank">
+                <Links src={git}/> 
+            </PersonalLinks>            
+        </ContainerLinks>
     </CardContainer>
     )
 }

@@ -8,7 +8,7 @@ import {
     Titulo,
     Separador,
     Mensagem,
-    CardContainer
+    CardContainer, Main
 } from './StoreStyles.jsx';
 
 export const Store = () => {
@@ -27,36 +27,38 @@ export const Store = () => {
     });
 
     return (
-        <ContainerPrincipal>
-            <Titulo>
-                📚 Catálogo Pokémon
-            </Titulo>
+        <Main>
+            <ContainerPrincipal>
+                <Titulo>
+                    📚 Catálogo Pokémon
+                </Titulo>
 
-            <Filtro
-                termoBusca={termoBusca}
-                setTermoBusca={setTermoBusca}
-                tipoSelecionado={tipoSelecionado}
-                setTipoSelecionado={setTipoSelecionado}
-            />
+                <Filtro
+                    termoBusca={termoBusca}
+                    setTermoBusca={setTermoBusca}
+                    tipoSelecionado={tipoSelecionado}
+                    setTipoSelecionado={setTipoSelecionado}
+                    />
 
-            <Separador />
+                <Separador />
 
-            {estaCarregando && <Mensagem>Carregando dados, aguarde...</Mensagem>}
+                {estaCarregando && <Mensagem>Carregando dados, aguarde...</Mensagem>}
 
-            <CardContainer>
-                {!estaCarregando && pokemonFiltrados.length > 0 ? (
-                    pokemonFiltrados.map((pokemon) => (
-                        <PokemonCard
+                <CardContainer>
+                    {!estaCarregando && pokemonFiltrados.length > 0 ? (
+                        pokemonFiltrados.map((pokemon) => (
+                            <PokemonCard
                             key={pokemon.name}
                             pokemon={pokemon}
                             onDetails={() => { }}
                             onAdd={() => addPokemonToList(pokemon)}
-                        />
-                    ))
-                ) : (
-                    !estaCarregando && <Mensagem>Nenhum Pokémon encontrado.</Mensagem>
-                )}
-            </CardContainer>
-        </ContainerPrincipal>
+                            />
+                        ))
+                    ) : (
+                        !estaCarregando && <Mensagem>Nenhum Pokémon encontrado.</Mensagem>
+                    )}
+                </CardContainer>
+            </ContainerPrincipal>
+        </Main>
     );
 };

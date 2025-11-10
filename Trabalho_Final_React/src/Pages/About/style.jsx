@@ -6,7 +6,10 @@ export const Main = styled.div`
   gap: 100px;
   justify-items: center;
   padding: 40px;
-  background-color: #4646e6;
+  background: #076585;  
+    background: -webkit-linear-gradient(to top, #fff, #076585);  
+    background: linear-gradient(to top, #fff, #076585); 
+
   min-height: 100vh;
   padding-top: 80px;
 

@@ -15,7 +15,7 @@ export const Home = () => {
                 <Titulo>O Ash está em crise!</Titulo>
                 <Separador />
                 <Mensagem>O Ash está vendendo seus pokemons e esta é a sua loja.</Mensagem>
-                <Mensagem>Compre a sua Pika-chu- em promoção!!</Mensagem>
+                <Mensagem>Compre a sua PIKA-chu em promoção!!</Mensagem>
                 <Link to="/store" style={{ textDecoration: "none" }}>
                     <StyledButton>Ir para a loja</StyledButton>
                 </Link>
