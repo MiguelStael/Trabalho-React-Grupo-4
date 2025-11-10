@@ -6,8 +6,12 @@ export const Main = styled.div`
   gap: 100px;
   justify-items: center;
   padding: 40px;
-  background-color: #4646e6;
-  min-height: calc(100vh - 60px);
+  background: #076585;  
+    background: -webkit-linear-gradient(to top, #fff, #076585);  
+    background: linear-gradient(to top, #fff, #076585); 
+
+  min-height: 100vh;
+  padding-top: 80px;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);

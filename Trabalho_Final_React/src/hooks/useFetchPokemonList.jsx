@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getFixedPriceFromId, getFixedPriceFromName } from '../Pages/Store/Filtro.jsx';
 
 export const useFetchPokemonList = (limit = 100) => {
     const [listaPokemon, setListaPokemon] = useState([]);
@@ -14,16 +15,21 @@ export const useFetchPokemonList = (limit = 100) => {
                     throw new Error('Erro ao buscar Pokémon');
                 }
                 const data = await response.json();
-
-                // Para cada Pokémon, buscar detalhes para obter tipos
                 const pokemonComTipos = await Promise.all(
                     data.results.map(async (pokemon) => {
                         const detailResponse = await fetch(pokemon.url);
                         const detailData = await detailResponse.json();
+                        const derivedPrice = detailData.id
+                            ? getFixedPriceFromId(detailData.id)
+                            : getFixedPriceFromName(pokemon.name);
+
                         return {
+                            id: detailData.id,
                             name: pokemon.name,
                             url: pokemon.url,
-                            types: detailData.types.map(type => type.type.name)
+                            types: detailData.types.map(type => type.type.name),
+                            sprite: detailData.sprites?.front_default || '',
+                            price: derivedPrice
                         };
                     })
                 );

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router';
 
+
+
 export const StyledLink = styled(Link)`
   color: #fff;
   text-decoration: none;
@@ -8,15 +10,18 @@ export const StyledLink = styled(Link)`
 
   &:hover {
     opacity: 0.7;
-    color: gold;
+    color: red;
   }
 `;
 
-export const Logo = styled(StyledLink)`
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #fff;
+export const LogoLink = styled(Link)`
+  display: flex; 
+  align-items: center;
+`;
+
+export const LogoImage = styled.img`
+  width: 50px; 
+  height: auto;
 `;
 
 export const Nav = styled.nav`
@@ -24,7 +29,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  background: #23232e;
+  background: #1A233A;
   height: 60px;
   padding: 0 16px;
 
@@ -95,6 +100,20 @@ export const MobileMenu = styled.div`
   @media (min-width: 768px) {
     display: none;
   }
+`;
+
+export const Badge = styled.span`
+  display: inline-block;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  background: #ff4d4f;
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  margin-left: 8px;
 `;
 
 

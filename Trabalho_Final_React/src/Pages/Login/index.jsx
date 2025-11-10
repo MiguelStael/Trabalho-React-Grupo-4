@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import * as Styled from './style.jsx';
 import { useAuthContext } from '../../context/AuthUtils.jsx';
+import { Navbar } from "../../components/NavBar";
 
 export const Login = () => {
     const [username, setUsername] = useState('');
@@ -27,7 +28,7 @@ export const Login = () => {
                 container.style.transform = 'translateX(-100%)';
                 container.style.transition = 'transform 0.70s ease-in-out';
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/home');
                 }, 960);
             } else {
                 setError('Chave de Acesso ou Senha Secreta inválida.');
