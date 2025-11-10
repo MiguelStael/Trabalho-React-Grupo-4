@@ -40,6 +40,7 @@ export const Login = () => {
 
     return (
         <>
+            <Navbar />
             <div>
                 <Styled.LoginWrapper onSubmit={handleLogin}>
                     <Styled.LoginContainer>

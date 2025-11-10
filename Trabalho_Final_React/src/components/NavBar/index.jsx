@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Nav, NavList, MobileMenu, LogoLink, StyledLink, Badge } from "./style";
+import { Nav, NavList, MobileMenu, LogoLink, LogoImage, StyledLink, Badge } from "./style";
 import { useCart } from '../../context/CartContext';
+import pikachuImg from '../../Assets/pngimg.com - pokemon_PNG14.png';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,18 +12,11 @@ export const Navbar = () => {
 
   return (
     <Nav>
-      <LogoLink to="/">Home</LogoLink>
-
-      <MobileMenu onClick={toggleMenu} aria-label="Menu">
-        <div className={isOpen ? "open" : ""}></div>
-        <div className={isOpen ? "open" : ""}></div>
-        <div className={isOpen ? "open" : ""}></div>
-        <div className={isOpen ? "open" : ""}></div>
-      </MobileMenu>
+      <LogoLink to="/home">
+        <LogoImage src={pikachuImg} alt="Pikachu" />
+      </LogoLink>
 
       <NavList $isOpen={isOpen}>
-        <li><StyledLink to="/">Home</StyledLink></li>
-        <li><StyledLink to="/login">Login</StyledLink></li>
         <li><StyledLink to="/store">Loja</StyledLink></li>
         <li><StyledLink to="/about">Sobre</StyledLink></li>
         <li>
@@ -39,7 +33,15 @@ export const Navbar = () => {
             )}
           </StyledLink>
         </li>
+        <li><StyledLink to="/login">Login</StyledLink></li>
       </NavList>
+
+      <MobileMenu onClick={toggleMenu} aria-label="Menu">
+        <div className={isOpen ? "open" : ""}></div>
+        <div className={isOpen ? "open" : ""}></div>
+        <div className={isOpen ? "open" : ""}></div>
+        <div className={isOpen ? "open" : ""}></div>
+      </MobileMenu>
     </Nav>
   );
 };
