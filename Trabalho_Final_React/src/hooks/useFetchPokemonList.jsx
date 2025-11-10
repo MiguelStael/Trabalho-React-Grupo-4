@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getFixedPriceFromId, getFixedPriceFromName } from '../Pages/Store/Filtro.jsx';
+import { getPriceByType } from '../Pages/Store/Filtro.jsx';
 
 export const useFetchPokemonList = (limit = 100) => {
     const [listaPokemon, setListaPokemon] = useState([]);
@@ -19,17 +19,16 @@ export const useFetchPokemonList = (limit = 100) => {
                     data.results.map(async (pokemon) => {
                         const detailResponse = await fetch(pokemon.url);
                         const detailData = await detailResponse.json();
-                        const derivedPrice = detailData.id
-                            ? getFixedPriceFromId(detailData.id)
-                            : getFixedPriceFromName(pokemon.name);
+                        const types = detailData.types.map(type => type.type.name);
+                        const price = getPriceByType(types, detailData.id);
 
                         return {
                             id: detailData.id,
                             name: pokemon.name,
                             url: pokemon.url,
-                            types: detailData.types.map(type => type.type.name),
+                            types: types,
                             sprite: detailData.sprites?.front_default || '',
-                            price: derivedPrice
+                            price: price
                         };
                     })
                 );

@@ -5,7 +5,7 @@ export const Card = styled.div`
   border-radius: 5px;
   padding: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  background: linear-gradient(180deg, rgba(255,255,255,0.95), #f8f8f8);
+  background: linear-gradient(180deg, ${props => props.backgroundColor}dd, ${props => props.backgroundColor}99);
   display:flex;
   flex-direction:column;
   align-items:center;
