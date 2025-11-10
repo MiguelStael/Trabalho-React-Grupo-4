@@ -17,11 +17,18 @@ export const StyledLink = styled(Link)`
 export const LogoLink = styled(Link)`
   display: flex; 
   align-items: center;
+  margin-right: auto;
 `;
 
 export const LogoImage = styled.img`
   width: 50px; 
   height: auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const Nav = styled.nav`
@@ -32,9 +39,10 @@ export const Nav = styled.nav`
   background: #1A233A;
   height: 60px;
   padding: 0 16px;
+  position: relative;
 
   @media (min-width: 768px) {
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `;
 
@@ -50,10 +58,12 @@ export const NavList = styled.ul`
   width: 200px;
   padding: 16px;
   border-radius: 8px;
+  z-index: 10;
 
   li {
     letter-spacing: 2px;
-    
+    display: flex;
+    align-items: center;
   }
 
   @media (min-width: 768px) {
@@ -64,9 +74,10 @@ export const NavList = styled.ul`
     background: none;
     padding: 0;
     gap: 32px;
+    z-index: 1;
 
     li {
-      margin-left: 32px;
+      margin-left: 0;
     }
   }
 `;
@@ -74,7 +85,7 @@ export const NavList = styled.ul`
 export const MobileMenu = styled.div`
   display: block;
   cursor: pointer;
-  z-index: 11;
+  z-index: 12;
 
   div {
     width: 32px;
