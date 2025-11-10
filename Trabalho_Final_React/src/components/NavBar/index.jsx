@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Nav, NavList, MobileMenu, Logo, StyledLink, Badge } from "./style";
+import { Nav, NavList, MobileMenu, LogoLink, StyledLink, Badge } from "./style";
 import { useCart } from '../../context/CartContext';
 
 export const Navbar = () => {
@@ -11,7 +11,7 @@ export const Navbar = () => {
 
   return (
     <Nav>
-      <Logo to="/">Home</Logo>
+      <LogoLink to="/">Home</LogoLink>
 
       <MobileMenu onClick={toggleMenu} aria-label="Menu">
         <div className={isOpen ? "open" : ""}></div>
