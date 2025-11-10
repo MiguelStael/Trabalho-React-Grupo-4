@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Main = styled.div`
+    background: #076585;  
+    background: -webkit-linear-gradient(to top, #fff, #076585);  
+    background: linear-gradient(to top, #fff, #076585); 
+`;
+
 export const ContainerPrincipal = styled.div`
     padding: 20px;
     max-width: 1200px;

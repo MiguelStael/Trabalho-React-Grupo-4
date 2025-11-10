@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import * as Styled from './style.jsx';
 import { useAuthContext } from '../../context/AuthUtils.jsx';
 import { Navbar } from "../../components/NavBar";

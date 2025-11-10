@@ -102,7 +102,7 @@ export const ErrorMessage = styled.p`
 `;
 
 export const StyledButton = styled.button`
-  width: 68%;
+  width: 200px;
   padding: 12px;
   margin: 30px auto 0 auto;
   border: none;

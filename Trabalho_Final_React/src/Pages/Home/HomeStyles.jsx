@@ -3,9 +3,14 @@ import styled from 'styled-components';
 export const ContainerPrincipal = styled.div`
     display: flex;
     flex-direction: column;
+    background: #076585;  
+    background: -webkit-linear-gradient(to top, #fff, #076585);  
+    background: linear-gradient(to top, #fff, #076585); 
+
+
     align-items: space-evenly;
     justify-content: center;
-    height: calc(100vh-60px);
+    height: calc(100vh - 60px);
     width: 100vw;
 `;
 
@@ -20,8 +25,13 @@ export const ImagemContainer = styled.div`
 `;
 
 export const Imagem = styled.img`
-    width: 600px;
-    min-height: 336px;
+    width: 300px;
+    min-height: 250px;
+
+    @media (min-width: 768px) {
+        width: 500px;
+        min-height: 350px;
+    };
 `;
 
 export const Titulo = styled.h1`
@@ -37,6 +47,8 @@ export const Separador = styled.div`
 export const Mensagem = styled.p`
     display: flex;
     justify-content: center;
+    text-align: center;
+    padding: 10px;
     font-size: 1.1em;
-    color: #666;
+    color: #272727;
 `;

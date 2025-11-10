@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
+
+
 
 export const StyledLink = styled(Link)`
   color: #fff;
@@ -8,15 +10,18 @@ export const StyledLink = styled(Link)`
 
   &:hover {
     opacity: 0.7;
-    color: gold;
+    color: red;
   }
 `;
 
-export const Logo = styled(StyledLink)`
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #fff;
+export const LogoLink = styled(Link)`
+  display: flex; 
+  align-items: center;
+`;
+
+export const LogoImage = styled.img`
+  width: 50px; 
+  height: auto;
 `;
 
 export const Nav = styled.nav`
@@ -24,7 +29,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  background: #23232e;
+  background: #1A233A;
   height: 60px;
   padding: 0 16px;
 
