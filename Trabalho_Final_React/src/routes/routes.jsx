@@ -4,6 +4,7 @@ import { Home } from "../Pages/Home/Home.jsx";
 import { Layout } from "../Pages/Layout/index.jsx";
 import { About } from "../Pages/About/index.jsx";
 import { Store } from "../Pages/Store/Store.jsx";
+import Detalhes from "../Pages/Store/Detalhes.jsx";
 import Cart from "../Pages/Cart/Cart.jsx";
 import { CartProvider } from "../context/CartContext";
 import { AuthProvider } from "../context/AuthContext";
@@ -22,6 +23,7 @@ export const AppRoutes = () => {
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/store" element={<Store />} />
+              <Route path="/store/:name" element={<Detalhes />} />
               <Route path="/cart" element={<Cart />} />
             </Route>
           </Routes>
