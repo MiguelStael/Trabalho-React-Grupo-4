@@ -1,4 +1,3 @@
-import { useLocation } from "react-router";
 import { Container, Text } from "./style";
 
 export function Footer() {

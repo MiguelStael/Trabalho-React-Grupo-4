@@ -8,7 +8,6 @@ import Detalhes from "../Pages/Store/Detalhes.jsx";
 import Cart from "../Pages/Cart/Cart.jsx";
 import { CartProvider } from "../context/CartContext";
 import { AuthProvider } from "../context/AuthContext";
-import { Footer }  from '../components/Footer/index.jsx';
 
 
 export const AppRoutes = () => {
