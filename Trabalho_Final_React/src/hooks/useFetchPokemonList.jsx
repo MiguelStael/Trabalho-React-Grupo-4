@@ -16,7 +16,6 @@ export const useFetchPokemonList = (limit = 100) => {
                 }
                 const data = await response.json();
 
-                // Fazer requisições em grupos para melhor performance
                 const batchSize = 20;
                 const pokemonComTipos = [];
 
@@ -45,7 +44,7 @@ export const useFetchPokemonList = (limit = 100) => {
                         })
                     );
                     pokemonComTipos.push(...batchResults.filter(p => p !== null));
-                    setListaPokemon([...pokemonComTipos]); // Atualizar estado enquanto carrega
+                    setListaPokemon([...pokemonComTipos]);
                 }
 
                 setListaPokemon(pokemonComTipos);

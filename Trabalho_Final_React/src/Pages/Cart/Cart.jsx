@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import styles from "./CartStyle.jsx";
-import ModalFinalizacao from "../../components/Modal/ModalFinalizacao.jsx"; // ✅ importa o modal
+import ModalFinalizacao from "../../components/Modal/ModalFinalizacao.jsx";
 
 export default function Cart() {
   const { myPokemonList, addPokemonToList, removePokemonFromList } = useCart();
-  const [showModal, setShowModal] = useState(false); // ✅ controla exibição do modal
+  const [showModal, setShowModal] = useState(false);
 
   const subtotal = myPokemonList.reduce((acc, item) => {
     const price = Number(item.price);
@@ -15,7 +15,7 @@ export default function Cart() {
   const frete = subtotal > 0 ? 7.99 : 0;
   const total = subtotal + frete;
 
-  const itemCount = myPokemonList.reduce((acc, item) => acc + item.quantity, 0); // ✅ total de pokémons
+  const itemCount = myPokemonList.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <div style={styles.page}>
@@ -93,7 +93,7 @@ export default function Cart() {
             <span>R$ {total.toFixed(2)}</span>
           </div>
 
-          {/* ✅ BOTÃO ABRE MODAL */}
+          {/* BOTÃO ABRE MODAL */}
           <button style={styles.checkoutBtn} onClick={() => setShowModal(true)}>
             Finalizar Compra
           </button>
