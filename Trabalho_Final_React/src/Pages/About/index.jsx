@@ -27,7 +27,7 @@ export const About = () => {
                     <PersonalCard image={Miguel} titulo=" Miguel" Link={LinMiguel} gitLink={GitMiguel} />
                     <PersonalCard image={Ireni} titulo="a Ireni" Link={LinIreni} gitLink={GitIreni} />
                     <PersonalCard image={Lorrane} titulo="a Lorrane" Link={LinLorrane} gitLink={GitLorrane} />
-                    {/* <PersonalCard image={Felipe} titulo=" Felipe" Link={LinFelipe} gitLink={GitFelipe} />             */}
+                    <PersonalCard image={Felipe} titulo=" Felipe" Link={LinFelipe} gitLink={GitFelipe} />            
                 </Container>
             </Main>
         </>
