@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import styles from "./CartStyle.jsx";
+import ModalFinalizacao from "../../components/Modal/ModalFinalizacao.jsx"; // ✅ importa o modal
 
 export default function Cart() {
   const { myPokemonList, addPokemonToList, removePokemonFromList } = useCart();
+  const [showModal, setShowModal] = useState(false); // ✅ controla exibição do modal
 
   const subtotal = myPokemonList.reduce((acc, item) => {
     const price = Number(item.price);
@@ -13,20 +15,20 @@ export default function Cart() {
   const frete = subtotal > 0 ? 7.99 : 0;
   const total = subtotal + frete;
 
+  const itemCount = myPokemonList.reduce((acc, item) => acc + item.quantity, 0); // ✅ total de pokémons
+
   return (
     <div style={styles.page}>
       <h1 style={styles.title}>Carrinho de Compras</h1>
 
       <div style={styles.layout}>
-    
+        {/* LISTA DE ITENS */}
         <div style={styles.itemsCard}>
           {myPokemonList.length === 0 ? (
             <p style={styles.emptyMessage}>Seu carrinho está vazio.</p>
           ) : (
             myPokemonList.map((pokemon) => (
               <div key={pokemon.name} style={styles.itemRow}>
-                
-         
                 <div style={styles.itemInfo}>
                   <img
                     src={pokemon.sprite}
@@ -41,12 +43,10 @@ export default function Cart() {
                   </div>
                 </div>
 
-           
                 <div style={styles.price}>
                   R$ {Number(pokemon.price).toFixed(2)}
                 </div>
 
-             
                 <div style={styles.qtyBox}>
                   <button
                     style={styles.qtyBtn}
@@ -65,7 +65,6 @@ export default function Cart() {
                   </button>
                 </div>
 
-             
                 <div style={styles.totalItem}>
                   R$ {(pokemon.quantity * pokemon.price).toFixed(2)}
                 </div>
@@ -74,7 +73,6 @@ export default function Cart() {
           )}
         </div>
 
-       
         <div style={styles.summaryCard}>
           <h2 style={styles.summaryTitle}>Resumo</h2>
 
@@ -95,9 +93,20 @@ export default function Cart() {
             <span>R$ {total.toFixed(2)}</span>
           </div>
 
-          <button style={styles.checkoutBtn}>Finalizar Compra</button>
+          {/* ✅ BOTÃO ABRE MODAL */}
+          <button style={styles.checkoutBtn} onClick={() => setShowModal(true)}>
+            Finalizar Compra
+          </button>
         </div>
       </div>
+
+      {showModal && (
+        <ModalFinalizacao
+          total={total}
+          itemCount={itemCount}
+          onClose={() => setShowModal(false)}
+        />
+      )}
     </div>
   );
 }
