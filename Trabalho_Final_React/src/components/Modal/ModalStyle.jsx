@@ -60,8 +60,9 @@ const styles = {
   },
 
   button: {
-    background: "#a3a3a39d",
-    border: "3px solid #000",
+    background: "#ff0000",
+    border: "3px solid #4f0303ff",
+    color: "#ffffffff",
     borderRadius: "10px",
     padding: "5px 10px",
     fontSize: "0.8rem",
