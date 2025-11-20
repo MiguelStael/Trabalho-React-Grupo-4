@@ -8,7 +8,7 @@ import Detalhes from "../Pages/Store/Detalhes.jsx";
 import Cart from "../Pages/Cart/Cart.jsx";
 import { CartProvider } from "../context/CartContext";
 import { AuthProvider } from "../context/AuthContext";
-
+import Pikachu from "../Pages/Pikachu/pikachu.jsx";
 
 export const AppRoutes = () => {
 
@@ -24,7 +24,8 @@ export const AppRoutes = () => {
               <Route path="/about" element={<About />} />
               <Route path="/store" element={<Store />} />
               <Route path="/store/:name" element={<Detalhes />} />
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/cart" element={<Cart />} />             
+              <Route path="/pikachu" element={<Pikachu />} />
             </Route>
           </Routes>
         </BrowserRouter>
