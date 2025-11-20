@@ -38,7 +38,7 @@ export default function Pikachu() {
               ? "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
               : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
           }
-          isHappy={isHappy}
+          $isHappy={isHappy}
           onClick={handleClick}
         />
 

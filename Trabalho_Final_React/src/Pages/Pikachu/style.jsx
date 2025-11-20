@@ -3,15 +3,20 @@ import styled, { keyframes } from "styled-components";
 
 export default function Pikachu() {
   const [isHappy, setIsHappy] = useState(false);
+  const [showSpark, setShowSpark] = useState(false); 
 
   function handleClick() {
     setIsHappy(!isHappy);
+
+    setShowSpark(true);
+    setTimeout(() => setShowSpark(false), 600); 
   }
 
   return (
     <Container>
       <Title>Pikachu Interativo ⚡</Title>
 
+      <PikaWrapper>
       <PikachuImage
         src={
           isHappy
@@ -22,13 +27,14 @@ export default function Pikachu() {
         onClick={handleClick}
         isHappy={isHappy}
       />
+      {showSpark && <Spark>⚡</Spark>}
+      </PikaWrapper>
 
       <Instructions>Clique no Pikachu para deixá-lo feliz! 💛</Instructions>
     </Container>
   );
 }
 
-/* ANIMAÇÃO */
 const pulse = keyframes`
   from {
     transform: scale(1);
@@ -38,9 +44,20 @@ const pulse = keyframes`
   }
 `;
 
+const flash = keyframes`
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(0deg); }
+  20% { opacity: 1; transform: translate(-50%, -50%) scale(1.5) rotate(10deg); }
+  40% { opacity: 0; transform: translate(-50%, -50%) scale(1.2) rotate(-10deg); }
+  60% { opacity: 1; transform: translate(-50%, -50%) scale(1.3) rotate(5deg); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+`;
+
 const Container = styled.div`
   text-align: center;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Title = styled.h1`
@@ -53,11 +70,19 @@ const Instructions = styled.p`
   font-size: 1.2rem;
 `;
 
-/* IMAGEM DO PIKACHU */
+const PikaWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  width: 200px; 
+  height: 200px;
+`;
+
+
 const PikachuImage = styled.img`
-  width: 200px;
+  width: 100%;
   cursor: pointer;
   transition: transform 0.3s ease;
+  z-index: 1; 
 
   &:hover {
     transform: scale(1.1);
@@ -68,4 +93,20 @@ const PikachuImage = styled.img`
     `
       animation: ${pulse} 0.5s infinite alternate;
     `}
+`;
+
+const Spark = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    font-size: 100px; 
+    pointer-events: none; 
+    z-index: 10; 
+    
+    color: #ffff00;
+    text-shadow: 0 0 15px #ffae00, 0 0 30px orange;
+    
+    animation: ${flash} 0.6s ease-out forwards;
 `;
