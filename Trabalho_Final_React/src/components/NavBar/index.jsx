@@ -3,6 +3,7 @@ import { useCart } from '../../context/CartContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Nav, NavList, MobileMenu, NavButton, Badge, LogoImage, LogoLink } from "./style";
 import poke from '../../Assets/pngimg.com - pokemon_PNG14.png';
+import Pikachu from './../../Pages/Pikachu/pikachu';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,22 +31,27 @@ export const Navbar = () => {
 
       <NavList $isOpen={isOpen}>
         <li>
-          <NavButton 
-            onClick={() => handleClick('/store')} 
+          <NavButton
+            onClick={() => handleClick('/store')}
             $active={location.pathname === '/store'}>
             Loja
           </NavButton>
         </li>
+        <NavButton
+          onClick={() => handleClick('/pikachu')}
+          $active={location.pathname === '/pikachu'}>
+          Pikachu
+        </NavButton>
         <li>
-          <NavButton 
-            onClick={() => handleClick('/about')} 
+          <NavButton
+            onClick={() => handleClick('/about')}
             $active={location.pathname === '/about'}>
             Sobre
           </NavButton>
         </li>
         <li>
-          <NavButton 
-            onClick={() => handleClick('/cart')} 
+          <NavButton
+            onClick={() => handleClick('/cart')}
             $active={location.pathname === '/cart'}>
             Carrinho
             {totalItems > 0 && (
